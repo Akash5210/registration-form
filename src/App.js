@@ -1,17 +1,42 @@
 import './App.css';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import ShowData from './ShowData';
 
 function App() {
-    const [person, setPerson] = useState({
+    const dataClean = {
       fullName: "",
       gender: "",
       state: "",
       dob: "",
-      file: ""
-    });
+      colour: ""
+    }
+    const [result, setResult] = useState([]);
+    const [person, setPerson] = useState(dataClean);
+
+    const handleResult = (e)=>{
+      e.preventDefault();
+      setResult([...result, person]);
+      setPerson(dataClean);
+    }
+    const handleUpload =async ()=>{
+      const response = await fetch("http://localhost:3000/",{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        body: JSON.stringify(result)
+      })
+      const data = await response.json();
+      console.log(data);
+    }
+    useEffect(()=>{
+      handleUpload();
+    },[result])
     return (
       <div className="App">
-        <h1>Hello</h1>
+        <h3>Basic Details</h3>
+
+        <form onSubmit={handleResult}>
         <div className="full-name">
           <input type="text" value={person.fullName} 
           onChange={(e)=> setPerson({...person,fullName: e.target.value})} />
@@ -35,14 +60,14 @@ function App() {
   
         <div className="dob">
           <lable for="dob">DOB: </lable>
-          <input type="date" name="dob" 
+          <input type="date" name="dob" value={person.dob}
           onChange={(e)=> setPerson({...person, dob: e.target.value})}/>
         </div>
   
-        <div className="file">
-          <lable for="file">File: </lable>
-          <input type="color" name="file" 
-           onChange={(e)=> setPerson({...person, file: e.target.value})}/>
+        <div className="colour">
+          <lable for="colour">Colour: </lable>
+          <input type="color" name="colour" value={person.colour}
+           onChange={(e)=> setPerson({...person, colour: e.target.value})}/>
         </div>
   
         <div style={{border:"1px solid black", textAlign:"left"}}>
@@ -50,8 +75,12 @@ function App() {
           Gender: {person.gender}<br/>
           State: {person.state}<br/>
           DOB: {person.dob}<br/>
-          File: {person.file}
+          Colour: {person.file}
         </div>
+
+        <button type='submit'>Submit</button>
+        </form>
+        <ShowData result={result} />
       </div>
     );
   }
