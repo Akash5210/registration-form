@@ -4,7 +4,7 @@ In the project directory, you can run:
 
 ### `link for deployed app`
 
-https://Akash5210.github.io/space-tourism
+https://akash5210.github.io/registration-form/
 
 ### `npm start`
 
