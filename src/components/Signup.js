@@ -33,110 +33,131 @@ export default function Signup({updateResult}) {
 
         <form onSubmit={handleResult} className='form mt-5'>
             <div className="fullName-field row mb-3 mx-0">
-                <div className='col-3'>
+                <div className='col-4 col-md-2'>
                     <label for="fullName" class="form-label">Full Name:<span className='text-danger'>*</span></label>
                 </div>
-                <div className='col-auto'>
+                <div className='col col-md-3'>
                     <input type="text" value={person.fullName} id='fullName'
                     onChange={(e)=> setPerson({...person,fullName: e.target.value})} className='form-control' required/>
                 </div>
             </div>
-
-            <div className="email-field row mb-3 mx-0">
-                <div className='col-3'>
-                    <label for="email" class="form-label">Email:<span className='text-danger'>*</span></label>
-                </div>
-                <div className='col-auto'>
-                    <input type="email" value={person.email} id='email'
-                    onChange={(e)=> setPerson({...person,email: e.target.value})} className='form-control' required/>
-                </div>
-            </div>
-
-            <div className="password-field row mb-3 mx-0">
-                <div className='col-3'>
-                    <label for="password" class="form-label">Password:<span className='text-danger'>*</span></label>
-                </div>
-                <div className='col-auto'>
-                    <input type="password" value={person.password} id='password'
-                    onChange={(e)=> setPerson({...person,password: e.target.value})} className='form-control' required/>
-                </div>
-            </div>
-
-            <div className="gender-field row mx-0 mb-3">
-                <div className='col-3'>
-                    <lable for="gender-data">Gender:<span className='text-danger'>*</span></lable>
-                </div>
-                <div className='col-auto row' onChange={(e)=> setPerson({...person,gender: e.target.value})} id='gender-data'>
-                    <div class="form-check col-auto">
-                        <input class="form-check-input" type="radio" name="gender" id="male" value="male"/>
-                        <label class="form-check-label" for="male">
-                            Male
-                        </label>
-                    </div>
-                    <div class="form-check col-auto">
-                        <input class="form-check-input" type="radio" name="gender" id="female" value="female"/>
-                        <label class="form-check-label" for="female">
-                            Female
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <div className="dob-field row mx-0 mb-3">
-                <div className='col-3'>
-                    <lable for="dob">DOB: </lable>
-                </div>
-                <div className='col-auto'>
-                <input type="date" name="dob" value={person.dob}
-                onChange={(e)=> setPerson({...person, dob: e.target.value})}/>
-                </div>
-            </div>
-    
-            <div className="address-field row mx-0 mb-3">
-                <div className='col-3'>
-                    <label for="address" class="form-label">Address:<span className='text-danger'>*</span></label>
-                </div>
-                <div className='col-auto'>
-                    <input type="text" value={person.fullAddress.address} id='address'
-                    onChange={(e)=> setPerson({...person, fullAddress: {...person.fullAddress,address: e.target.value}})} 
-                    className='form-control' required/>
-                </div>
-            </div>
-
-            <div className="city-field row mx-0 mb-3">
-                <div className='col-3'>
-                    <label for="city" class="form-label">City:<span className='text-danger'>*</span></label>
-                </div>
-                <div className='col-auto'>
-                    <input type="text" value={person.fullAddress.city} id='city'
-                    onChange={(e)=> setPerson({...person,fullAddress: {...person.fullAddress, city: e.target.value}})} 
-                    className='form-control' required/>
-                </div>
-            </div>
             
-            <div className="state-field row mx-0 mb-3">
-                <div className='col-3'>
-                    <lable for="state">State:</lable>
+            <div className='row mx-0'>
+                <div className="email-field col-12 col-md-6 mb-3">
+                    <div className='row'>
+                        <div className='col-3'>
+                            <label for="email" class="form-label">Email:<span className='text-danger'>*</span></label>
+                        </div>
+                        <div className='col col-md-7'>
+                            <input type="email" value={person.email} id='email'
+                            onChange={(e)=> setPerson({...person,email: e.target.value})} className='form-control' required/>
+                        </div>
+                    </div>
                 </div>
-                <div className='col-auto'>
-                    <select id="state" onChange={(e)=> setPerson({...person,fullAddress:{...person.fullAddress,state: e.target.value}})} 
-                    className='form-select mb-3'>
-                        <option hidden>--select--</option>
-                        <option value="Bihar">Bihar</option>
-                        <option value="Uttar Pradesh">Uttar Pradesh</option>
-                        <option value="New Delhi">New Delhi</option>
-                    </select>
+
+                <div className="password-field col-12 col-md-6 mb-3">
+                    <div className='row'>
+                        <div className='col-3'>
+                            <label for="password" class="form-label">Password:<span className='text-danger'>*</span></label>
+                        </div>
+                        <div className='col col-md-7'>
+                            <input type="password" value={person.password} id='password'
+                            onChange={(e)=> setPerson({...person,password: e.target.value})} className='form-control' required/>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div className="zip-field row mx-0 mb-3">
-                <div className='col-3'>
-                    <label for="zip" class="form-label">Zip:<span className='text-danger'>*</span></label>
+            <div className='row mx-0'>
+                <div className="gender-field col-12 col-md-6 mb-3">
+                    <div className='row'>
+                        <div className='col-3'>
+                            <lable for="gender-data">Gender:<span className='text-danger'>*</span></lable>
+                        </div>
+                        <div className='col col-md-7' onChange={(e)=> setPerson({...person,gender: e.target.value})} id='gender-data'>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="male" value="male"/>
+                                <label class="form-check-label" for="male">
+                                    Male
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="female" value="female"/>
+                                <label class="form-check-label" for="female">
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className='col-auto'>
-                    <input type="text" value={person.zip} id='zip'
-                    onChange={(e)=> setPerson({...person,fullAddress:{...person.fullAddress,zip: e.target.value}})} 
-                    className='form-control' required/>
+                <div className="dob-field col-12 col-md-6 mb-3">
+                    <div className='row'>
+                        <div className='col-3'>
+                            <lable for="dob">DOB: </lable>
+                        </div>
+                        <div className='col col-md-7'>
+                        <input type="date" name="dob" value={person.dob}
+                        onChange={(e)=> setPerson({...person, dob: e.target.value})}/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className='row mx-0'>
+                <div className="address-field  col-12 col-md-6 mb-3">
+                    <div className='row'>
+                        <div className='col-3'>
+                            <label for="address" class="form-label">Address:<span className='text-danger'>*</span></label>
+                        </div>
+                        <div className='col col-md-7'>
+                            <input type="text" value={person.fullAddress.address} id='address'
+                            onChange={(e)=> setPerson({...person, fullAddress: {...person.fullAddress,address: e.target.value}})} 
+                            className='form-control' required/>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="city-field col-12 col-md-6 mb-3">
+                    <div className='row'>
+                        <div className='col-3'>
+                            <label for="city" class="form-label">City:<span className='text-danger'>*</span></label>
+                        </div>
+                        <div className='col col-md-7'>
+                            <input type="text" value={person.fullAddress.city} id='city'
+                            onChange={(e)=> setPerson({...person,fullAddress: {...person.fullAddress, city: e.target.value}})} 
+                            className='form-control' required/>
+                        </div>
+                    </div>
+                </div>
+                
+                <div className="state-field col-12 col-md-6 mb-3">
+                    <div className='row'>
+                        <div className='col-3'>
+                            <lable for="state">State:</lable>
+                        </div>
+                        <div className='col col-md-7'>
+                            <select id="state" onChange={(e)=> setPerson({...person,fullAddress:{...person.fullAddress,state: e.target.value}})} 
+                            className='form-select mb-3'>
+                                <option hidden>--select--</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="New Delhi">New Delhi</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="zip-field col-12 col-md-6 mb-3">
+                    <div className='row'>
+                        <div className='col-3'>
+                            <label for="zip" class="form-label">Zip:<span className='text-danger'>*</span></label>
+                        </div>
+                        <div className='col col-md-7'>
+                            <input type="text" value={person.fullAddress.city} id='zip'
+                            onChange={(e)=> setPerson({...person,fullAddress:{...person.fullAddress,zip: e.target.value}})} 
+                            className='form-control' required/>
+                        </div>
+                    </div>
                 </div>
             </div>
 
