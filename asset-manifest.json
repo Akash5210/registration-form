@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/registration-form/static/css/main.789ed421.css",
-    "main.js": "/registration-form/static/js/main.af2521ca.js",
+    "main.css": "/registration-form/static/css/main.1033340c.css",
+    "main.js": "/registration-form/static/js/main.81fab85f.js",
     "static/js/787.338366e2.chunk.js": "/registration-form/static/js/787.338366e2.chunk.js",
+    "static/media/park-background.jpg": "/registration-form/static/media/park-background.07230100149df349c5c4.jpg",
     "index.html": "/registration-form/index.html",
-    "main.789ed421.css.map": "/registration-form/static/css/main.789ed421.css.map",
-    "main.af2521ca.js.map": "/registration-form/static/js/main.af2521ca.js.map",
+    "main.1033340c.css.map": "/registration-form/static/css/main.1033340c.css.map",
+    "main.81fab85f.js.map": "/registration-form/static/js/main.81fab85f.js.map",
     "787.338366e2.chunk.js.map": "/registration-form/static/js/787.338366e2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.789ed421.css",
-    "static/js/main.af2521ca.js"
+    "static/css/main.1033340c.css",
+    "static/js/main.81fab85f.js"
   ]
 }
