@@ -2,6 +2,10 @@ import './App.css';
 import React, { useState} from 'react';
 import ShowData from './components/ShowData';
 import Signup from './components/Signup';
+import bgImage from "./images/park-background.jpg";
+import Signin from './components/Signin';
+import leafImg from '../src/images/leaf.png';
+
 
 function App() {
     const [result, setResult] = useState([]);
@@ -11,9 +15,23 @@ function App() {
     }
     
     return (
-      <div className="App container mt-4 px-4 py-4">
-        <Signup updateResult={updateResult} />
-        <ShowData result={result} />
+
+      <div className="App">
+        <img src={bgImage} className='bgPark-img z-n1 position-absolute top-0 w-100' alt='bg-park-img' />
+        <div className="set">
+          <div><img src={leafImg} /></div>
+          <div><img src={leafImg} /></div>
+          <div><img src={leafImg} /></div>
+          <div><img src={leafImg} /></div>
+          <div><img src={leafImg} /></div>
+          <div><img src={leafImg} /></div>
+          <div><img src={leafImg} /></div>
+          <div><img src={leafImg} /></div>
+        </div>
+        
+        <Signin />
+        {/* <Signup updateResult={updateResult} /> */}
+        {/* <ShowData result={result} /> */}
       </div>
     );
   }
